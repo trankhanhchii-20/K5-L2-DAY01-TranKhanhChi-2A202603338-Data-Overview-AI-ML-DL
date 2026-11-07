@@ -68,7 +68,7 @@
 | Tác vụ | Ground truth trông như thế nào? (đơn vị nhãn) | Lỗi hoặc chỗ khó quyết định bạn thấy trên ảnh/JSON | Annotator làm gì? | Reviewer xem gì? |
 | :---- | :---- | :---- | :---- | :---- |
 | Phân loại ảnh | **1 nhãn / 1 ảnh**: `class_id` \+ `class_name` \+ `taxonomy_name` | Ảnh traffic có nhiều xe buýt, ô tô, người nhưng top-1 là **cab (0.51)**\- chủ thể không rõ, taxonomy ImageNet không có "bus/street scene" khớp cảnh COCO | Chọn đúng một lớp theo tiêu chí "chủ thể chính" trong guideline; escalate nếu không có lớp phù hợp | Lớp có nằm trong taxonomy không, có đúng tiêu chí chủ thể chính không, tỉ lệ đồng thuận giữa annotator |
-| Phát hiện vật thể | **1 hộp / 1 vật**: lớp \+ `bbox_xyxy` (pixel, gốc trên-trái) | Số hộp đổi mạnh theo ngưỡng (**17 / 11 / 6**); nhiều bowl/cup chồng nhau score thấp (0.45–0.58) trên bàn; bàn bị cắt mép ảnh | Vẽ hộp sát phần nhìn thấy, đủ mọi vật trong danh sách lớp, mỗi vật một hộp | Hộp thiếu (bỏ sót), hộp thừa/trùng, hộp lỏng/lệch biên, sai lớp; kiểm tra vật nhỏ & bị che |
+| Phát hiện vật thể | **1 hộp / 1 vật**: lớp \+ `bbox_xyxy` (pixel, gốc trên-trái) | Số hộp đổi mạnh theo ngưỡng (**17 / 11 / 6**); nhiều bowl/cup chồng nhau score thấp (0.38–0.50) trên bàn; bàn bị cắt mép ảnh | Vẽ hộp sát phần nhìn thấy, đủ mọi vật trong danh sách lớp, mỗi vật một hộp | Hộp thiếu (bỏ sót), hộp thừa/trùng, hộp lỏng/lệch biên, sai lớp; kiểm tra vật nhỏ & bị che |
 | Instance segmentation | **1 polygon / 1 instance**: `instance_id` \+ lớp \+ `polygon_xy` | Mask **dining table tràn qua bát/đĩa**; "person 0.43" không rõ là người; biên chồng giữa vật chạm nhau | Vẽ polygon bám biên phần nhìn thấy, tách riêng từng instance, xử lý biên chung theo quy tắc trước/sau | Biên có bám sát không, mask có chồng/tràn sang vật khác không, mỗi instance có ID riêng, có instance nào bị gộp |
 
 ## 5\. An toàn dữ liệu
@@ -88,6 +88,6 @@ Kiểm tra trên GitHub trong thư mục `report/`:
 - [x] `day1_lab_outputs/visuals/classification_top5.png`  
 - [x] `day1_lab_outputs/visuals/detection_predictions.png`  
 - [x] `day1_lab_outputs/visuals/segmentation_prediction.png`  
-- [ ] Ô validation cuối notebook báo `PASS`  
-- [ ] Không có họ tên, MSSV hoặc dữ liệu nhạy cảm trong báo cáo/output  
+- [x] Ô validation cuối notebook báo `PASS`  
+- [x] Không có họ tên, MSSV hoặc dữ liệu nhạy cảm trong báo cáo/output  
 - [ ] Đã nộp **link repository** trên LMS
